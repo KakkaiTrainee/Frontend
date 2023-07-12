@@ -1,33 +1,24 @@
 <script setup>
+import { onMounted, ref, computed } from "vue";
 
 const props = defineProps({
     provinces: Object,
-    imageProvince: String
 })
-const cardContainers = document.querySelectorAll('.flex.overflow-x-auto');
-  cardContainers.forEach((container) => {
-    container.addEventListener('wheel', (event) => {
-      event.preventDefault();
-      container.scrollLeft += event.deltaY;
-    });
-  });
 
 
+    // selectedRegionId
+    // vue3 composition api จะเอาตัวแปรออกจากvueยังไง คือผมอยากใช้ตัวแปรจากอีกcomponentนึงอ่ะ
 
-//มีfilter
+    
 </script>
  
 <template>
-<!-- <div class="container mx-auto bg-gray-200 rounded-xl shadow border p-8 m-10">
-  <div v-for="province in provinces" class="rounded-full bg-white py-2 px-4 flex justify-center border border-gold  mx-2"  >
-    {{ province.id }}      {{ province.provinceName }}  {{ province.provinceRegion.id }}
-  </div>
- </div> -->
- 
-  <div v-for="province in provinces" class=" bg-white py-2 px-4 flex overflow-x-auto mx-2  "  >
+  <div v-for="province in provinces" class=" bg-white py-2 px-4 flex overflow-x-auto mx-2  "   >
     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
-    <a href="#">
-        <img class="rounded-t-lg w-full" src="../../public/bgContent.jpg"  alt="" />
+      <RouterLink :to="{ name: 'Hotel', params: {id: province.id} }" >
+        <!-- ตรง a href อ่ะเวลากด มันจะlinkไปหน้าhotelView เสร็จปุ๊บจะต้องส่งค่าprovince.idไปด้วย -->
+      <a href="#">
+        <img class="rounded-t-lg w-full" src="../../public/bgContent.jpg" />
     </a>
     <div class="p-5">
         <a href="#">
@@ -41,16 +32,11 @@ const cardContainers = document.querySelectorAll('.flex.overflow-x-auto');
              <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
             </svg>
-        </a>
+          </a>
     </div>
+  </RouterLink>
 </div>
   </div>
-
- 
-
- 
 </template>
- 
 <style scoped>
-
 </style>

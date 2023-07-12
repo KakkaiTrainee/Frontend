@@ -15,7 +15,7 @@ const getProvinces = async () => {
         const res = await fetch(`http://localhost:8081/api/provinces`)
         if(res.ok){
             return await res.json()
-        }else throw new Error(`Error,cannot get Region data`)
+        }else throw new Error(`Error,cannot get Province data`)
     }catch(error){
         console.log(error)
     }
@@ -26,9 +26,35 @@ const getProvinceImageById = async (id) => {
         const res = await fetch(`http://localhost:8081/api/provinces/images/${id}`)
         if(res.ok){
             return await res.json()
-        }else throw new Error(`Error,cannot get Region data`)
+        }else throw new Error(`Error,cannot get ProvinceImage data`)
     }catch(error){
         console.log(error)
     }
 }
-export {getRegions,getProvinces,getProvinceImageById}
+
+const getHotels = async () => {
+    try{
+        //const res = await fetch(`${import.meta.env.VITE_BASE_URL}/api/regions`)
+        const res = await fetch(`http://localhost:8081/api/hotels`)
+        if(res.ok){
+            return await res.json()
+        }else throw new Error(`Error,cannot get Hotel data`)
+    }catch(error){
+        console.log(error)
+    }
+}
+
+const getTubs = async () => {
+    try{
+        //const res = await fetch(`${import.meta.env.VITE_BASE_URL}/api/regions`)
+        const res = await fetch(`http://localhost:8081/api/tubs`)
+        if(res.ok){
+            return await res.json()
+        }else throw new Error(`Error,cannot get Tub data`)
+    }catch(error){
+        console.log(error)
+    }
+}
+
+
+export {getRegions,getProvinces,getProvinceImageById,getHotels,getTubs}
