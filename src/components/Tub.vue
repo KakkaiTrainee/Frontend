@@ -2,13 +2,15 @@
 const props = defineProps({
     tubs: Object
 })
+const who = "tub"
 
 </script>
  
 <template>
 <div v-for="tub in tubs" class=" bg-white py-2 px-4 flex overflow-x-auto mx-2  "  >
     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
-    <a href="#">
+        <RouterLink :to="{ name: 'HotelView', params: { id: tub.id }, query: { who: who }   }">
+        <a href="#">
         <img class="rounded-t-lg w-full" src="../../public/bgContent.jpg"  alt="" />
     </a>
     <div class="p-5">
@@ -25,6 +27,7 @@ const props = defineProps({
             </svg>
         </a>
     </div>
+    </RouterLink>
 </div>
   </div>
 </template>

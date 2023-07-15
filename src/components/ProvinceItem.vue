@@ -1,10 +1,16 @@
 <script setup>
 import { onMounted, ref, computed } from "vue";
+import { RouterLink } from 'vue-router'
 
+const selectedProvinceId = ref('')
+const who = "province"
 const props = defineProps({
     provinces: Object,
 })
-
+const currentProvince= (id) => {
+  selectedProvinceId.value=id
+    console.log(selectedProvinceId.value)
+}
 
     // selectedRegionId
     // vue3 composition api จะเอาตัวแปรออกจากvueยังไง คือผมอยากใช้ตัวแปรจากอีกcomponentนึงอ่ะ
@@ -13,9 +19,9 @@ const props = defineProps({
 </script>
  
 <template>
-  <div v-for="province in provinces" class=" bg-white py-2 px-4 flex overflow-x-auto mx-2  "   >
+  <div v-for="province in provinces" class=" bg-white py-2 px-4 flex overflow-x-auto mx-2  "  @click=currentProvince(province.id) >
     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
-      <RouterLink :to="{ name: 'Hotel', params: {id: province.id} }" >
+      <RouterLink :to="{ name: 'HotelView', params: { id: province.id }, query: { who: who }   }">
         <!-- ตรง a href อ่ะเวลากด มันจะlinkไปหน้าhotelView เสร็จปุ๊บจะต้องส่งค่าprovince.idไปด้วย -->
       <a href="#">
         <img class="rounded-t-lg w-full" src="../../public/bgContent.jpg" />

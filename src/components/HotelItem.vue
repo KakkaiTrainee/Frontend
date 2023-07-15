@@ -19,7 +19,8 @@ const props = defineProps({
         <a href="#">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ hotel.hotelName}}</h5>
         </a>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">ลองLoopข้อมูลจังหวัดแบบcard</p>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ hotel.hotelTub.id }}</p>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ hotel.hotelTub.tubName }}</p>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">จังหวัด {{ hotel.hotelProvince.provinceName }} </p>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ hotel.hotelProvince.provinceTravel }}</p>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ hotel.hotelPrice }} ฿</p>

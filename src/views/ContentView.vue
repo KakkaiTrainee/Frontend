@@ -1,22 +1,24 @@
 <script setup>
-import { getRegions, getProvinces, getProvinceImageById,getHotels,getTubs } from '../composables/fetch.js'
+import { getRegions, getProvinces, getHotelById,getHotels,getTubs } from '../composables/fetch.js'
 import { onMounted, ref, computed } from "vue";
 import ProvinceItem from "../components/ProvinceItem.vue";
 import Navbar from "../components/Navbar.vue";
 import HotelItem from '../components/HotelItem.vue';
 import Tub from "../components/Tub.vue";
 import Region from '../components/Region.vue';
+import { useRouter } from 'vue-router';
+import SearchBar from '../components/SearchBar.vue';
+
 
 const regions = ref([])
 const provinces = ref([])
 const hotels = ref([])
 const tubs = ref([])
 // const imageProvince = ref('')
-const searchQuery = ref('')
-
-
+const router = useRouter();
 const selectedRegionId = ref(4)
 const regionId=ref(4)
+
 
 
 //region
@@ -49,16 +51,14 @@ onMounted(async () => {
     console.log(tubs.value)
 })
 
+
 const filterProvince = computed(() => {
    return provinces.value.filter((province) => province.provinceRegion.id === selectedRegionId.value)
     })
 
-const filterPopular = computed(() => {
+const filterPopularHotel = computed(() => {
   return hotels.value.filter(hotel => hotel.hotelProvince.provinceTravel === 'Y')
 })
-
-//search
-
 
 
 
@@ -71,12 +71,34 @@ const filterPopular = computed(() => {
         <!-- <div class="w-full text-white flex justify-center mt-16 pb-8 pt-4 px-0 text-5xl absolute "> Hotel Hotub?</div> -->
         <img src="../../public/bgContent.jpg" alt="BG" class="w-full h-[520px]">
     </div>
-    <div class="flex items-center justify-center ">
-        <div class="flex">
-            <input v-model="searchQuery" type="text" placeholder="Enter Your Destination..."
-                class=" px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 " />
-        </div>
-    </div>
+    <div class="flex  w-full absolute items-center justify-center  ">
+<SearchBar :hotels="hotels" :provinces="provinces"></SearchBar>
+</div>
+  <!-- <div class="relative">
+    <input
+      v-model="searchQuery"
+      @input="search"
+      type="text"
+      placeholder="Search"
+      class="w-full py-2 pl-10 pr-3 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+    <ul
+      v-if="showResults && filteredResults.length"
+      class="absolute z-10 w-full p-2 mt-1 bg-white border border-gray-300 rounded-md shadow-lg"
+    >
+    
+      <li
+        v-for="result in filteredResults"
+        :key="result.id"
+        class="py-1 px-2 cursor-pointer hover:bg-gray-100"
+        @click="selectResult(result)"
+      >
+      <RouterLink :to="{ name: 'HotelView', params: { id: result.id }, query: { who: who }   }">      
+        {{ result.hotelName }}
+      </RouterLink>
+      </li>
+    </ul>
+  </div> -->
 
     <div id="destination" class=" flex justify-center pb-8 pt-32 px-0 text-4xl "> Explore Your Destination</div>
     <div class="flex flex-wrap justify-center">
@@ -93,16 +115,12 @@ const filterPopular = computed(() => {
     <div id="tub" class="flex justify-center pb-8 pt-32 px-0 text-4xl ">Type of Bathtub</div>
     <Tub :tubs="tubs"></Tub>
 
-    <!-- <RouterLink :to="{ name: 'Hotel' }">
-        <button class="bg-gold hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-6">
-            go to hotel
-        </button>
-    </RouterLink> -->
+   
     <!-- </div> -->
     <div id="hotel"  class="flex justify-center pb-8 pt-32 px-0 text-4xl ">Explore More Hotel</div>
 
     <!-- ต้องส่งไอดีที่ hotels.hotelProvince.provinceTravel เป็น  Y -->
-    <HotelItem :hotels="filterPopular"></HotelItem>
+    <HotelItem :hotels="filterPopularHotel" ></HotelItem>
 </template>
  
 <style scoped></style>
