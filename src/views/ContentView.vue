@@ -5,7 +5,6 @@ import ProvinceItem from "../components/ProvinceItem.vue";
 import Navbar from "../components/Navbar.vue";
 import HotelItem from '../components/HotelItem.vue';
 import Tub from "../components/Tub.vue";
-import Region from '../components/Region.vue';
 import { useRouter } from 'vue-router';
 import SearchBar from '../components/SearchBar.vue';
 
@@ -69,7 +68,7 @@ const filterPopularHotel = computed(() => {
     <Navbar></Navbar>
     <div>
         <!-- <div class="w-full text-white flex justify-center mt-16 pb-8 pt-4 px-0 text-5xl absolute "> Hotel Hotub?</div> -->
-        <img src="../../public/bgContent.jpg" alt="BG" class="w-full h-[520px]">
+        <img src="../../public/tub-homepage.jpg" alt="BG" class="w-full h-[520px]">
     </div>
     <div class="flex  w-full absolute items-center justify-center  ">
 <SearchBar :hotels="hotels" :provinces="provinces"></SearchBar>
