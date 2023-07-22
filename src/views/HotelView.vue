@@ -1,5 +1,5 @@
 <script setup>
-import { getHotels } from '../composables/fetch.js'
+import { getHotels,getTubs } from '../composables/fetch.js'
 import HotelItem from '../components/HotelItem.vue'
 import { onMounted, ref, computed,onUpdated  } from "vue"
 import { useRoute } from 'vue-router'
@@ -9,6 +9,7 @@ import SearchBar from '../components/SearchBar.vue';
 // import { defineProps } from 'vue'
 
 const hotels = ref([])
+const tubs = ref([])
 const route = useRoute()
 const selectedId =route.params.id 
 const whoPassed = route.query.who
@@ -22,7 +23,10 @@ onMounted(async () => {
     hotels.value = await getHotels()
     console.log(hotels.value)
 })
-
+onMounted(async () => {
+    tubs.value = await getTubs()
+    console.log(tubs.value)
+})
 
 // const filterProvince = computed (() => {
 //   return  hotels.value.filter((hotel) => hotel.hotelProvince.id == selectedId)
@@ -92,6 +96,8 @@ const selectResult = (result) => {
 
     </div>
   </form> -->
+  <Filter :hotels="hotels" :tubs="tubs"></Filter>
+
   <SearchBar :hotels="filterHotel" :provinces="provinces"></SearchBar>
 
   

@@ -10,10 +10,11 @@ const props = defineProps({
              
 <template>
         <!-- สำหรับโชว์ในContentView -->
-<div v-for="hotel in hotels" class=" bg-white py-2 px-4 flex overflow-x-auto mx-2  " >
+        <div class="flex flex-wrap -mx-2">
+<div v-for="hotel in hotels" :key="hotel.hotelReview" class="w-full sm:w-1/2 md:w-1/3 px-2 mb-4" >
     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
     <a href="#">
-        <img class="rounded-t-lg w-full" src="../../public/bgContent.jpg"  alt="" />
+        <img class="rounded-t-lg w-full" :src="`http://localhost:8081/api/hotels/images/${hotel.id}`" alt="" />
     </a>
     <div class="p-5">
         <a href="#">
@@ -22,7 +23,7 @@ const props = defineProps({
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ hotel.hotelTub.id }}</p>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ hotel.hotelTub.tubName }}</p>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">จังหวัด {{ hotel.hotelProvince.provinceName }} </p>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ hotel.hotelProvince.provinceTravel }}</p>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ hotel.hotelReview }}</p>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ hotel.hotelPrice }} ฿</p>
 
         <a :href="hotel.hotelLink" target="_blank" class=" inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -34,7 +35,7 @@ const props = defineProps({
     </div>
 </div>
   </div>
-
+</div>
   <!-- <div v-for="hotel in hotels" v-show="HotelView" class=" bg-white py-2 px-4 flex overflow-x-auto mx-2  " >
     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
     <a href="#">
@@ -66,5 +67,7 @@ const props = defineProps({
 </template>
  
 <style scoped>
-
+.flex-wrap {
+  flex-wrap: wrap;
+}
 </style>
