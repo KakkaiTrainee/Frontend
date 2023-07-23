@@ -10,23 +10,24 @@ const props = defineProps({
              
 <template>
         <!-- สำหรับโชว์ในContentView -->
-        <div class="flex flex-wrap -mx-2">
+        <div class="flex flex-wrap p-2 mx-20">
 <div v-for="hotel in hotels" :key="hotel.hotelReview" class="w-full sm:w-1/2 md:w-1/3 px-2 mb-4" >
     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
     <a href="#">
-        <img class="rounded-t-lg w-full" :src="`http://localhost:8081/api/hotels/images/${hotel.id}`" alt="" />
+        <img class="rounded-t-lg w-full h-[350px] " :src="`http://localhost:8081/api/hotels/images/${hotel.id}`" alt="" />
     </a>
     <div class="p-5">
         <a href="#">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ hotel.hotelName}}</h5>
         </a>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ hotel.hotelTub.id }}</p>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ hotel.hotelAmountPeople}}</p>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ hotel.hotelTub.tubName }}</p>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">จังหวัด {{ hotel.hotelProvince.provinceName }} </p>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ hotel.hotelReview }}</p>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ hotel.hotelFacilities }}</p>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ hotel.hotelPrice }} ฿</p>
 
-        <a :href="hotel.hotelLink" target="_blank" class=" inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        <a :href="hotel.hotelLink" target="_blank" class=" inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gold rounded-lg hover:bg-gold focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-gold dark:bg-gold dark:focus:ring-blue-800">
             more details
              <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -70,4 +71,5 @@ const props = defineProps({
 .flex-wrap {
   flex-wrap: wrap;
 }
+
 </style>

@@ -29,13 +29,13 @@ const selectResult = (result) => {
 </script>
  
 <template>
-<div class="relative">
+<div class="absolute">
     <input
       v-model="searchQuery"
       @input="search"
       type="text"
-      placeholder="Search"
-      class="w-full py-2 pl-10 pr-3 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+      placeholder="Enter your Destination"
+      class="w-full py-4 pl-12 pr-3  text-white bg-gold border border-gold rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-gold"
     />
     <ul
       v-if="showResults && filteredResults.length"
@@ -57,5 +57,7 @@ const selectResult = (result) => {
 </template>
  
 <style scoped>
-
+input::placeholder {
+  opacity: 0.6;
+}
 </style>
