@@ -5,6 +5,7 @@ import ProvinceItem from "../components/ProvinceItem.vue";
 import Navbar from "../components/Navbar.vue";
 import HotelItem from '../components/HotelItem.vue';
 import { useRouter } from 'vue-router';
+import Tub from '../components/Tub.vue';
 
 const regions = ref([])
 const provinces = ref([])

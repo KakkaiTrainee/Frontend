@@ -3,7 +3,6 @@ import { getHotels, getTubs } from '../composables/fetch.js'
 import HotelItem from '../components/HotelItem.vue'
 import { onMounted, ref, computed, onUpdated, watch, reactive } from "vue"
 import { useRoute } from 'vue-router'
-import SearchBar from '../components/SearchBar.vue';
 
 // import { defineProps } from 'vue'
 
