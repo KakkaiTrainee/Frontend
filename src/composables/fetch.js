@@ -1,7 +1,7 @@
 const getRegions = async () => {
     try{
         //const res = await fetch(`${import.meta.http://chanathipgeist.ddns.net:8088/env.VITE_BASE_URL}/api/regions`)
-        const res = await fetch(`api/regions`)
+        const res = await fetch(`http://chanathipgeist.ddns.net:8088/api/regions`)
         if(res.ok){
             return await res.json()
         }else throw new Error(`Error,cannot get Region data`)
