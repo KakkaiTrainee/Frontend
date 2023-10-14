@@ -38,7 +38,7 @@ const currentProvince = (id) => {
             <img
               ref="cardImage"
               class="rounded-t-lg w-full h-[150px] object-cover"
-              :src="`http://localhost:8081/api/provinces/images/${province.id}`"
+              :src="`http://chanathipgeist.ddns.net:8088/api/provinces/images/${province.id}`"
               alt=""
             />
             

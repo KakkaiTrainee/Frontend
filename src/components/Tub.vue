@@ -13,7 +13,7 @@ const who = "tub"
             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
                 <RouterLink :to="{ name: 'HotelView', params: { id: tub.id }, query: { who: who } }">
                    <div class="relative">
-                        <img class="rounded-t-lg w-full h-[300px] object-cover" :src="`http://localhost:8081/api/tubs/images/${tub.id}`" alt="" />
+                        <img class="rounded-t-lg w-full h-[300px] object-cover" :src="`http://chanathipgeist.ddns.net:8088/api/tubs/images/${tub.id}`" alt="" />
              
                         <h5 class="mb-10 text-2xl font-bold tracking-tight text-gray-900 dark:text-white px-5 pt-8"> {{ tub.tubName }} </h5>
                     </div>
@@ -28,9 +28,9 @@ const who = "tub"
         </a> -->
                 </RouterLink>
   
-                <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-slate-600 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
+                <!-- <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-slate-600 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50"> -->
               
-            </div>
+         
 
 
             </div>
