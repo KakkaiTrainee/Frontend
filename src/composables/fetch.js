@@ -1,7 +1,7 @@
 const getRegions = async () => {
     try{
-        //const res = await fetch(`${import.meta.env.VITE_BASE_URL}/api/regions`)
-        const res = await fetch(`http://localhost:8081/api/regions`)
+        //const res = await fetch(`${import.meta.http://chanathipgeist.ddns.net:8088/env.VITE_BASE_URL}/api/regions`)
+        const res = await fetch(`api/regions`)
         if(res.ok){
             return await res.json()
         }else throw new Error(`Error,cannot get Region data`)
@@ -12,7 +12,7 @@ const getRegions = async () => {
 const getProvinces = async () => {
     try{
         //const res = await fetch(`${import.meta.env.VITE_BASE_URL}/api/regions`)
-        const res = await fetch(`http://localhost:8081/api/provinces`)
+        const res = await fetch(`http://chanathipgeist.ddns.net:8088/api/provinces`)
         if(res.ok){
             return await res.json()
         }else throw new Error(`Error,cannot get Province data`)
@@ -23,7 +23,7 @@ const getProvinces = async () => {
 const getProvinceImageById = async (id) => {
     try{
         //const res = await fetch(`${import.meta.env.VITE_BASE_URL}/api/regions`)
-        const res = await fetch(`http://localhost:8081/api/provinces/images/${id}`)
+        const res = await fetch(`http://chanathipgeist.ddns.net:8088/api/provinces/images/${id}`)
         if(res.ok){
             return await res.json()
         }else throw new Error(`Error,cannot get ProvinceImage data`)
@@ -35,7 +35,7 @@ const getProvinceImageById = async (id) => {
 const getHotels = async () => {
     try{
         //const res = await fetch(`${import.meta.env.VITE_BASE_URL}/api/regions`)
-        const res = await fetch(`http://localhost:8081/api/hotels`)
+        const res = await fetch(`http://chanathipgeist.ddns.net:8088/api/hotels`)
         if(res.ok){
             return await res.json()
         }else throw new Error(`Error,cannot get Hotel data`)
@@ -47,7 +47,7 @@ const getHotels = async () => {
 const getHotelById = async (id) => {
     try{
         //const res = await fetch(`${import.meta.env.VITE_BASE_URL}/api/regions`)
-        const res = await fetch(`http://localhost:8081/api/hotels/${id}`)
+        const res = await fetch(`http://chanathipgeist.ddns.net:8088/api/hotels/${id}`)
         if(res.ok){
             return await res.json()
         }else throw new Error(`Error,cannot get Hotel data`)
@@ -59,7 +59,7 @@ const getHotelById = async (id) => {
 const getTubs = async () => {
     try{
         //const res = await fetch(`${import.meta.env.VITE_BASE_URL}/api/regions`)
-        const res = await fetch(`http://localhost:8081/api/tubs`)
+        const res = await fetch(`http://chanathipgeist.ddns.net:8088/api/tubs`)
         if(res.ok){
             return await res.json()
         }else throw new Error(`Error,cannot get Tub data`)
